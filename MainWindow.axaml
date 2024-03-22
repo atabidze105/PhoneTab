@@ -1,0 +1,148 @@
+	<Window 
+		xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1900" d:DesignHeight="1000"
+		WindowState="Maximized"
+        x:Class="PhoneTab.MainWindow"
+        Title="PhoneTab">
+
+		<Grid
+			ShowGridLines="False">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				Text="Ввод номера телефона"
+				Grid.ColumnSpan="4"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				FontSize="50"/>
+			
+			<TabControl
+				TabStripPlacement="Left"
+				Grid.ColumnSpan="4"
+				Grid.RowSpan="3">
+				<TabItem Header="Галочки">
+					<Border
+						Grid.ColumnSpan="2"
+						Grid.Row="1"
+						BorderBrush="Black"
+						BorderThickness="0"
+						CornerRadius="5">
+						<Panel>
+							<TextBlock
+								Text="Введите номер телефона&#x0a;	с помощью галочек:"
+								Grid.Row="1"
+								Grid.Column="0"
+								Grid.ColumnSpan="1"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Top"
+								Margin="100"
+								FontSize="25"/>
+							<WrapPanel
+								Name="wrap"
+								Grid.Row="1"
+								Grid.ColumnSpan="2"
+								VerticalAlignment="Center"
+								HorizontalAlignment="Center"/>
+							<TextBlock
+								Name="checkText"
+								Text="+7(___)-___-__-__"
+								FontSize="30"
+								Grid.Row="1"
+								VerticalAlignment="Bottom"
+								HorizontalAlignment="Center"/>
+							<Image
+								Source="/Assets/Images/sample.jpg"
+								Grid.Row="2"
+								VerticalAlignment="Top" HorizontalAlignment="Right"
+								Height="55"
+								Margin="60"/>
+						</Panel>
+					</Border>
+				</TabItem>
+				<TabItem Header="Рандомайзер">
+					<Panel
+						Grid.Row="1"
+						Grid.Column="2">
+						<TextBlock
+							Text="Ввод через рандомайзер"
+							HorizontalAlignment="Center"
+							FontSize="25"
+							Margin="100"/>
+						<TextBlock
+							Name="rndYourNumber"
+							Text="Ваш номер телефона:"
+							VerticalAlignment="Bottom"
+							HorizontalAlignment="Center"
+							Margin="150"/>
+						<StackPanel
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Orientation="Vertical">
+							<TextBlock
+								Text="Это ваш номер телефона?"
+								HorizontalAlignment="Center"
+								FontSize="18"/>
+							<TextBlock
+								Name="randomText"
+								HorizontalAlignment="Center"
+								Text="0000000000"
+								FontSize="16" FontWeight="Heavy"/>
+							<Border
+								HorizontalAlignment="Center">
+								<StackPanel
+									Orientation="Horizontal">
+									<Button
+										Name="btnCorrect"
+										Click="rndNumberSet"
+										Content="Да"/>
+									<Button
+										Name="btnWrong"
+										Click="rndNumberGet"
+										Content="Нет"/>
+								</StackPanel>
+							</Border>
+						</StackPanel>
+					</Panel>
+
+				</TabItem>
+				<TabItem Header="Слайдер">
+					<Panel
+						Grid.Column="1"
+						Grid.Row="2">
+						<TextBlock
+							Text="Ввод через слайдер"
+							HorizontalAlignment="Center"
+							FontSize="25"
+							Margin="100"/>
+						<StackPanel
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							Orientation="Vertical">
+							<TextBlock
+								HorizontalAlignment="Center"
+								Text="{ Binding #sliderPhone.Value }"/>
+							<Slider
+								Name="sliderPhone"
+								Width="300"
+								Minimum="1000000000" Maximum="9999999999"
+								IsSnapToTickEnabled="True"
+								TickFrequency="1"/>
+						</StackPanel>
+					</Panel>
+
+				</TabItem>
+			</TabControl>
+		</Grid>
+	</Window>
